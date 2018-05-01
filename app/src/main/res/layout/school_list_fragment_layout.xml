@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+   <data>
+      <import type="android.view.View"/>
+      <variable
+          name="snvm"
+          type="education.satscoreapplication.viewmodel.SchoolNameViewModel" />
+   </data>
+<RelativeLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   >
+
+   <ProgressBar
+       android:id="@+id/progress_indicator"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:visibility="@{snvm.inProgress?View.VISIBLE:View.GONE}" />
+
+   <android.support.v7.widget.RecyclerView
+       android:id="@+id/school_list"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:visibility="@{snvm.inProgress?View.GONE:View.VISIBLE}"/>
+
+</RelativeLayout>
+</layout>

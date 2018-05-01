@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="satviewmodel"
+            type="education.satscoreapplication.viewmodel.SatViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/horz_padding">
+
+    <RelativeLayout
+        android:id="@+id/error_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:visibility="@{satviewmodel.errorFlag?View.VISIBLE:View.GONE}">
+
+        <TextView
+            android:id="@+id/error_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/unknown_error_sat_score"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/success_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:visibility="@{satviewmodel.errorFlag?View.GONE:View.VISIBLE}">
+
+        <TextView
+            android:id="@+id/school_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{satviewmodel.schoolName}"
+            tools:text="HENRY STREET SCHOOL FOR INTERNATIONAL STUDIES" />
+
+        <LinearLayout
+            android:id="@+id/total_applicant_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/school_name"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/horz_padding"
+            android:paddingTop="@dimen/horz_padding"
+            android:weightSum="2.0">
+
+            <TextView
+                android:id="@+id/total_examinee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:gravity="left"
+                android:text="@string/total_examinee_label" />
+
+            <TextView
+                android:id="@+id/total_examinee_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:gravity="right"
+                android:text="@{satviewmodel.noOfTestTakers}"
+                tools:text="432" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/score_label_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/total_applicant_layout"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/horz_padding"
+            android:paddingTop="@dimen/horz_padding"
+            android:weightSum="3.0">
+
+            <TextView
+                android:id="@+id/math_score_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:gravity="left"
+                android:text="@string/math_label" />
+
+            <TextView
+                android:id="@+id/reading_score_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:text="@string/reading_label" />
+
+            <TextView
+                android:id="@+id/writing_score_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:gravity="right"
+                android:text="@string/writing_label" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/score_value_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/score_label_layout"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/horz_padding"
+            android:paddingTop="@dimen/horz_padding"
+            android:weightSum="3.0">
+
+            <TextView
+                android:id="@+id/math_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:gravity="left"
+                android:text="@{satviewmodel.avgMathScore}"
+                tools:text="404" />
+
+            <TextView
+                android:id="@+id/reading_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:text="@{satviewmodel.avgReadingScore}"
+                tools:text="20" />
+
+            <TextView
+                android:id="@+id/writing_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:gravity="right"
+                android:text="@{satviewmodel.avgWritingScore}"
+                tools:text="355" />
+        </LinearLayout>
+    </RelativeLayout>
+    </RelativeLayout>
+</layout>

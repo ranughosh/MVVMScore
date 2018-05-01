@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="adapterviewmodel"
+            type="education.satscoreapplication.viewmodel.SchoolListAdapterViewModel"/>
+        <variable
+            name="rowClickEventHandler"
+            type="education.satscoreapplication.viewmodel.RowClickEventHandler"/>
+    </data>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="@dimen/horz_padding"
+    android:onClick="@{(view)-> rowClickEventHandler.onRowClicked(view,schoolName)}">
+
+    <TextView android:id="@+id/school_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Clinton School Writers and Artists, M.S. 260"
+        android:textSize="@dimen/school_name_font"
+        android:text="@{adapterviewmodel.schoolName}"/>
+    <TextView android:id="@+id/school_location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/school_name"
+        android:textSize="@dimen/school_location_font"
+        tools:text="10 East 15th Street, Manhattan NY 10003 (40.736526, -73.992727)"
+        android:text="@{adapterviewmodel.schoolLocation}"/>
+    <TextView android:id="@+id/school_website"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/school_location"
+        tools:text="www.theclintonschool.net"
+        android:textSize="@dimen/school_location_font"
+        android:autoLink="web"
+        android:text="@{adapterviewmodel.schoolWebsite}"
+        android:paddingBottom="@dimen/horz_padding"/>
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/recycler_divider"
+    android:background="@color/dividerValue"
+    android:layout_below="@id/school_website"/>
+</RelativeLayout>
+</layout>

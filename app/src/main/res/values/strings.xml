@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">SATScoreApplication</string>
+    <string name="total_examinee_label">Total Number of Test Taker</string>
+    <string name="math_label">Math</string>
+    <string name="reading_label">Reading</string>
+    <string name="writing_label">Writing</string>
+    <string name="unknown_error_sat_score">Score not found</string>
+</resources>

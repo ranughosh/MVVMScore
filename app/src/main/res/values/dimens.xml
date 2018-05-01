@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="border_padding">3dp</dimen>
+    <dimen name="horz_padding">10dp</dimen>
+    <dimen name="image_dimension">50dp</dimen>
+
+    <dimen name="school_name_font">18.0sp</dimen>
+    <dimen name="school_location_font">12.0sp</dimen>
+    <dimen name="school_website_font">11.0sp</dimen>
+    <dimen name="recycler_divider">1.0dp</dimen>
+</resources>
